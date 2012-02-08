@@ -3,16 +3,22 @@
 <head>
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<title>{% block title %}Temp Title{% endblock %}</title>
+	<style type="text/css" media="screen">
+		#nav { border: 1px solid blue; margin-bottom: 15px; }
+		#nav li {list-style-type: none; float: left; padding-right: 15px;}
+	</style>
 </head>
 <body>
-	{% if user.username %}
-		Greetings to you {{ user.username }}. You are logged in.
-		<a href="/logout/">Logout</a>
-	{% else %}
-		Welcome Anonymous. You can log in <a href="/login/">here</a>.
-	{% endif %}
+	<div id="content-box" style="width: 60%; margin: 0 auto;">
+	{% block logo %}{% include "header.html" %}{% endblock logo %}
+	{% block nav %}{% include "nav.html" %}{% endblock nav %}
+	{% block greeting %}{% include "greeting.html" %}{% endblock greeting %}
 	
-	<h1>{% block header %}Temp Title{% endblock %}</h1>
-	{% block content %}
-	{% endblock content %}
+	<h2>{% block header %}Temp Title{% endblock %}</h2>
+	
+	{% block content %}{% endblock content %}
+	
+	{% block footer %}{% include "footer.html" %}{% endblock footer %}
+	</div>
 </body>
+</html>

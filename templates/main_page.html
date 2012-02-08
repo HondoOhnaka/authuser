@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% block title %}Welcome to Auth User Site{% endblock title %}
 {% block header %}
-Welcome.
+Welcome {{ user.username|title }}.
 {% endblock header %}
 
 {% block content %}
-This is the main page.
+This is the main page for {{ user.username|title }}.
 {% endblock content %}
